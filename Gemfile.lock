@@ -51,6 +51,10 @@ GEM
       execjs
     coffee-script-source (1.6.3)
     connection_pool (1.2.0)
+    daemons (1.1.9)
+    daemons-rails (1.2.1)
+      daemons
+      multi_json (~> 1.0)
     devise (3.2.2)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -111,6 +115,7 @@ GEM
     orm_adapter (0.5.0)
     polyglot (0.3.3)
     rack (1.5.2)
+    rack-cors (0.2.9)
     rack-test (0.6.2)
       rack (>= 1.0)
     rails (4.0.2)
@@ -170,6 +175,7 @@ DEPENDENCIES
   bootstrap-sass
   bson_ext
   coffee-rails (~> 4.0.0)
+  daemons-rails
   devise
   font-awesome-rails
   jbuilder (~> 1.2)
@@ -178,6 +184,7 @@ DEPENDENCIES
   omniauth
   omniauth-facebook
   omniauth-github
+  rack-cors
   rails (= 4.0.2)
   rails_layout
   sass-rails (~> 4.0.0)

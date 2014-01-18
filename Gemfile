@@ -10,6 +10,8 @@ gem 'omniauth-github'
 gem 'omniauth-facebook'
 gem 'bootstrap-sass'
 gem "font-awesome-rails"
+gem 'rack-cors'
+gem 'daemons-rails'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
