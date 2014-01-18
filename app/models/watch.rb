@@ -3,6 +3,7 @@ class Watch
   include Mongoid::Timestamps
 
   belongs_to :user, validate: true
+  belongs_to :category
   has_many :history
 
   field :url,       :type => String

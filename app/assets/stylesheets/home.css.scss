@@ -7,3 +7,29 @@
   width: 500px;
   margin: 0 auto;
 }
+
+html, body, main, #query-target {
+  margin: 0px;
+  padding:0px;
+}
+
+body, main, #query-target {
+  height: 100%;
+  width: 100%;
+}
+
+main {
+  padding-top: 50px;
+}
+
+#query-bar {
+  width: 550px;
+  height: 44px;
+  margin-top: 3px;
+}
+
+#query-go {
+  height: 44px;
+  margin-top: 3px;
+  margin-left: 10px;
+}

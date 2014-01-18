@@ -3,6 +3,7 @@ class User
   include Mongoid::Attributes::Dynamic
 
   has_many :watch
+  has_many :category
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -30,8 +31,12 @@ class User
       user.uid = auth.uid
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
-      #user.name = auth.info.name   # assuming the user model has a name
-      #user.image = auth.info.image # assuming the user model has an image
+      c1 = Category.create ({:name => "Finance", :user => user, :image => ""})
+      c2 = Category.create ({:name => "Academic", :user => user, :image => "http://blogs.sjsu.edu/mysjsu/files/2013/05/grades-1ict9ds.jpg"})
+      c3 = Category.create ({:name => "Play", :user => user, :image => "http://bragthemes.com/demo/pinstrap/files/2012/10/modern-bike-220x146.jpeg"})
+      c4 = Category.create ({:name => "Home Life", :user => user, :image => "http://bragthemes.com/demo/pinstrap/files/2012/10/modern-shower.jpeg"})
+      c5 = Category.create ({:name => "Work", :user => user, :image => "http://bragthemes.com/demo/pinstrap/files/2012/10/white-house.jpeg"})
+      user.category.push(c1,c2,c3,c4,c5)
       user.save!
     end
   end

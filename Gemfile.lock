@@ -176,7 +176,6 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass
   bson_ext
-  coffee-rails (~> 4.0.0)
   daemons-rails
   devise
   font-awesome-rails

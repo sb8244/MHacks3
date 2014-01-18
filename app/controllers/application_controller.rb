@@ -4,6 +4,6 @@ class ApplicationController < ActionController::Base
   #protect_from_forgery with: :null_session
 
   def index
-    redirect_to home_path if user_signed_in?
+    redirect_to category_path if user_signed_in?
   end
 end
