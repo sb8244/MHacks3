@@ -5,7 +5,7 @@ class WatchesController < ApplicationController
   # GET /watches
   # GET /watches.json
   def index
-    @watches = Watch.all
+    @watches = current_user.watch.all
   end
 
   # GET /watches/1
@@ -17,6 +17,7 @@ class WatchesController < ApplicationController
   # POST /watches.json
   def create
     @watch = Watch.new(watch_params)
+    @watch.user = current_user
 
     respond_to do |format|
       if @watch.save
