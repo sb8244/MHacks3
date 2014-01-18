@@ -1,0 +1,9 @@
+# fill this in to enable sendgrid
+#ActionMailer::Base.smtp_settings = {
+#  :address => "smtp.sendgrid.net",
+#  :port => 25,
+#  :domain => "domain",
+#  :authentication => :plain,
+#  :user_name => "login",
+#  :password => "password"
+#}
