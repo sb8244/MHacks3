@@ -1,7 +1,9 @@
 class User
   include Mongoid::Document
   include Mongoid::Attributes::Dynamic
-  
+
+  has_many :watch
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable,

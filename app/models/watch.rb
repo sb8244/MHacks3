@@ -2,9 +2,9 @@ class Watch
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  has_one :user, validate: true
+  belongs_to :user, validate: true
+  has_many :history
 
   field :url,       :type => String
   field :selector,  :type => String
-  field :history,   :type => Array
 end
