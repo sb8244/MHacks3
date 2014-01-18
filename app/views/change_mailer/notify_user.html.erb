@@ -1,6 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html style="background: #eee">
   <body>
-  This is just a test!
+  <h1>We're looking out for you</h1>
+  <p>
+    Some of the content that you are interested in has changed. The content at 
+    <%= link_to @history.watch.url, @history.watch.url %> has changed. Check out the
+    new content:
+  </p>
+  <p>
+    <img src='http://content2img.com:4000/images/<%= @history.image_id %>.png' />
+  </p>
   </body>
 </html>

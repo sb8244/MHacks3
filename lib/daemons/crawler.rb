@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 require 'open-uri'
 # You might want to change this
-ENV["RAILS_ENV"] ||= "production"
+ENV["RAILS_ENV"] ||= "development"
 
 root = File.expand_path(File.dirname(__FILE__))
 root = File.dirname(root) until File.exists?(File.join(root, 'config'))
@@ -28,17 +28,20 @@ while($running) do
 
     if trigger_job 
       #This service will take an image of the content for the very specific selector we have
-      result = open("http://www.content2img.com:4000?url=#{ERB::Util::url_encode(watch.url)}&selector=#{ERB::Util::url_encode(watch.selector)}").read
+      result = open("http://content2img.com:4000?url=#{ERB::Util::url_encode(watch.url)}&selector=#{ERB::Util::url_encode(watch.selector)}").read
       json = JSON.parse(result)
-      History.new do |h|
-        h.content = json['content']['html'] unless json['error'] == 'not found'
-        h.page_hash = new_page_hash
-        h.watch = watch
-        h.image_id = json['id']
-        h.save
+      unless json['content']['html'] == watch.history.last.content 
+        history = History.new do |h|
+          h.content = json['content']['html'] unless json['error'] == 'not found'
+          h.page_hash = new_page_hash
+          h.watch = watch
+          h.image_id = json['id']
+          h.save
+        end
+        ChangeMailer.notify_user(watch.user, history).deliver
+        puts "Job processed & Notified: #{watch.url}::#{watch.selector}"
       end
-      puts "Job processed"
     end
   end
-  sleep 60
+  sleep 1
 end
