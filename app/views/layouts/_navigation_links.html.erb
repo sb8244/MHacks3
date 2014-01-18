@@ -1,0 +1,9 @@
+<%# add navigation links to this file %>
+<% if user_signed_in? %>
+  <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
+<% else %>
+  <li><%= link_to(user_omniauth_authorize_path(:github),
+              class: "btn btn-social-icon btn-github") do %>
+    <i class='fa fa-github'></i>
+  <% end %></li>
+<% end %>
