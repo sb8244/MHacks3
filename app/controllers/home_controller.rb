@@ -1,5 +1,8 @@
 class HomeController < ApplicationController
   def index
-    redirect_to watches_path if user_signed_in?
+  end
+
+  def logged
+    @logged = { status: user_signed_in? }
   end
 end
