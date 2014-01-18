@@ -28,7 +28,7 @@ while($running) do
 
     if trigger_job 
       #This service will take an image of the content for the very specific selector we have
-      result = open("http://www.stephenbussey.com:4000?url=#{ERB::Util::url_encode(watch.url)}&selector=#{ERB::Util::url_encode(watch.selector)}").read
+      result = open("http://www.content2img.com:4000?url=#{ERB::Util::url_encode(watch.url)}&selector=#{ERB::Util::url_encode(watch.selector)}").read
       json = JSON.parse(result)
       History.new do |h|
         h.content = json['content']['html'] unless json['error'] == 'not found'
