@@ -1,20 +1,19 @@
 <div id='filters'>
-  <a class='btn filter btn-primary' data-filter='*'>All</a>
+  <a class='btn filter btn-primary all' data-filter='*'>All</a>
 <% @categories.each do |cat| %>
   <a class='btn filter' data-filter='.<%= cat.name %>'><%= cat.name %></a>
 <% end %>
 </div>
 <div id='item-container'>
 <% @watches.each do |watch| %>
-  <% unless watch.history.last.nil? %>
-  <div class="item <%= watch.category ? watch.category.name : "" %>" data-date='<%= watch.history.last.updated_at.to_i %>'>
+  <% unless watch.history.last.nil? || watch.history.last.image_id.nil? %>
+  <div class="item <%= watch.category ? watch.category.name : "" %>" 
+    data-date='<%= watch.history.last.updated_at.to_i %>'
+    data-url='<%= watch.url %>'
+    data-content='<%= watch.history.last.content %>'>
     <%= link_to 'X', watch, class: 'remove', method: :delete, data: { confirm: 'Are you sure?' } %>
-    <% if watch.history.last.image_id %>
     <img src="http://content2img.com:4000/images/<%= watch.history.last.image_id %>.png" 
       class="attachment-hp-thumb wp-post-image" alt="finance"/>
-    <% else %>
-    Content expired
-    <% end %>
   </div>
   <% end %>
 <% end %>
@@ -40,6 +39,23 @@
   $("#filters a").click(function() {
     var selector = $(this).attr('data-filter');
     $("#item-container").isotope({ filter: selector });
+  });
+  $("#searchform").submit(function(e) {
+    e.preventDefault();
+    return false;
+  });
+  $("#searchform input").keyup(function() {
+    var search = $(this).val();
+    if(search == "") {
+      $(".filter.all").click();
+      return false;
+    }
+    $(".item").removeClass("matches");
+    $(".item[data-url*='" + search + "']").addClass("matches");
+    $(".item[data-date*='" + search + "']").addClass("matches");
+    $(".item[data-content*='" + search + "']").addClass("matches");
+    $("#item-container").isotope({ filter: ".matches" });
+    $(".filter.btn").removeClass("btn-primary");
   });
 })(jQuery);
 </script>

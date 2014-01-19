@@ -54,12 +54,10 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="http://cwatch.ngrok.com/category" title="PinStrap" rel="homepage">Content Tracker</a>
+          <a class="brand" href="<%= watches_path %>" title="PinStrap" rel="homepage">Content Tracker</a>
           <div class="nav-collapse collapse"> 
-            <div class="nav-collapse collapse pull-right">
-              <ul id="menu-menu" class="nav"><li id="menu-item-128" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-128"><a href="">Add Category</a></li>
-              <!-- INSERT POPUP TO CREATE NEW CATEGORY IN HREF -->          
-            <form class="navbar-search pull-right" role="search" method="get" id="searchform" action="">
+            <div class="nav-collapse collapse pull-right">        
+            <form class="navbar-search pull-right" id="searchform">
               <!-- In action, insert url for db you want to search -->
               <input name="s" id="s" type="text" class="search-query" placeholder="Search">
             </form>
@@ -80,24 +78,6 @@
 </div>
 </div><!-- end of wrapper-->
 </div><!-- end of container -->
-<%#<div id="footer" class="clearfix">
-  <div class="container">
-    <div id="footer-wrapper">
-      <div class="span12">
-        <div class="row-fluid">
-          <div class="span6">
-            <ul id="menu-footer" class="footer-menu"><li id="menu-item-266" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-266"><a href="http://bragthemes.com/demo/pinstrap/">Home</a></li>
-            </ul>                 
-          </div><!-- span6 -->
-          <div class="span6 powered">
-            Content Tracker developed by <a href="http://github.com/sb8244" title="Stephen Bussey">Stephen Bussey</a> and <a href="http://github.com/danstepanov" title="Dan Stepanov">Dan Stepanov</a>
-          </div><!-- end .powered -->
-        </div>
-      </div><!-- span12-->
-    </div><!-- end #footer-wrapper -->
-  </div>
-</div><!-- end #footer -->%>
-
 
 <script type='text/javascript' src='http://bragthemes.com/demo/pinstrap/wp-content/themes/pinstrap/js/responsive-scripts.js?ver=1.1.0'></script>
 <script type='text/javascript' src='http://bragthemes.com/demo/pinstrap/wp-content/themes/pinstrap/js/responsive-plugins.js?ver=1.1.0'></script>
