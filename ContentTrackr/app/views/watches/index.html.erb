@@ -1,0 +1,29 @@
+<div id='item-container'>
+<% @watches.each do |watch| %>
+  <% unless watch.history.last.nil? %>
+  <div class="item" data-date='<%= watch.history.last.updated_at.to_i %>'>
+    <%= link_to 'X', watch, class: 'remove', method: :delete, data: { confirm: 'Are you sure?' } %>
+    <img src="http://content2img.com:4000/images/<%= watch.history.last.image_id %>.png" 
+      class="attachment-hp-thumb wp-post-image" alt="finance"/>
+    <p class="link-btn"><a href="http://content2img.com:4000/images/<%= watch.history.last.image_id %>.png" title="Clown" rel="colorbox"><i class=" icon-zoom-in"></i></a></p>
+  </div>
+  <% end %>
+<% end %>
+</div>
+<div class='clearfix'></div>
+<%#= link_to 'Sign out', destroy_user_session_path, :method => "delete" %>
+<script type="text/javascript">
+(function($) {
+  $(document).ready(function() {
+    $("#item-container").isotope({
+      layout : 'masonryHorizontal',
+      itemSelector : '.item',
+      sortBy : 'date',
+      sortAscending : false,
+    });
+    setTimeout(function() {
+      $("#item-container").isotope('reLayout');
+    },500);
+  });
+})(jQuery);
+</script>

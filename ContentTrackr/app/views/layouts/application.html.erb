@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="no-js ie6" lang="en-US"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7" lang="en-US"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8" lang="en-US"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js" lang="en-US"> <!--<![endif]-->
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+  <title>Fuck It Follow It</title>
+
+  <link rel="profile" href="http://gmpg.org/xfn/11" />
+  <link rel="pingback" href="http://bragthemes.com/demo/pinstrap/xmlrpc.php" />
+
+  <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+
+  <!--[if IE 7]>
+    <link rel="stylesheet" href="/css/font-awesome-ie7.css">
+  <![endif]-->
+
+  <link rel="alternate" type="application/rss+xml" title="PinStrap &raquo; Feed" href="http://bragthemes.com/demo/pinstrap/feed/" />
+  <link rel="alternate" type="application/rss+xml" title="PinStrap &raquo; Comments Feed" href="http://bragthemes.com/demo/pinstrap/comments/feed/" />
+  <link rel='stylesheet' id='bootstrap-styles-css'  href='http://bragthemes.com/demo/pinstrap/wp-content/themes/pinstrap/css/bootstrap.css?ver=2.3.0' type='text/css' media='all' />
+  <link rel='stylesheet' id='font-awesome-css'  href='http://bragthemes.com/demo/pinstrap/wp-content/themes/pinstrap/css/font-awesome.css?ver=3.0' type='text/css' media='all' />
+  <link rel='stylesheet' id='colorbox-css'  href='http://bragthemes.com/demo/pinstrap/wp-content/themes/pinstrap/css/colorbox.css?ver=1.3.19' type='text/css' media='all' />
+  <link rel='stylesheet' id='responsive-style-css'  href='http://bragthemes.com/demo/pinstrap/wp-content/themes/pinstrap/style.css?ver=1.2.0' type='text/css' media='all' />
+  <script type='text/javascript' src='http://bragthemes.com/demo/pinstrap/wp-includes/js/jquery/jquery.js?ver=1.10.2'></script>
+  <script type='text/javascript' src='http://bragthemes.com/demo/pinstrap/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+  <script type='text/javascript' src='http://bragthemes.com/demo/pinstrap/wp-content/themes/pinstrap/js/responsive-modernizr.js?ver=2.5.3'></script>
+  <script type='text/javascript' src='http://bragthemes.com/demo/pinstrap/wp-content/themes/pinstrap/js/bootstrap.js?ver=3.7.1'></script>
+  <script type='text/javascript' src='http://bragthemes.com/demo/pinstrap/wp-content/themes/pinstrap/js/strap-extras.js?ver=3.7.1'></script>
+  <script type='text/javascript' src='http://bragthemes.com/demo/pinstrap/wp-content/themes/pinstrap/js/jquery.imagesloaded.js?ver=3.7.1'></script>
+  <script type='text/javascript' src='http://bragthemes.com/demo/pinstrap/wp-content/themes/pinstrap/js/jquery.wookmark.js?ver=3.7.1'></script>
+  <script type='text/javascript' src='/assets/js/isotope.js'></script>
+  <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://bragthemes.com/demo/pinstrap/xmlrpc.php?rsd" />
+  <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://bragthemes.com/demo/pinstrap/wp-includes/wlwmanifest.xml" /> 
+  <meta name="generator" content="WordPress 3.7.1" />
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+</head>
+
+<body class="home blog">
+  <div id="header">
+    <div class="navbar navbar-fixed-top ">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="http://cwatch.ngrok.com/category" title="PinStrap" rel="homepage">Content Tracker</a>
+          <div class="nav-collapse collapse"> 
+            <div class="nav-collapse collapse pull-right">
+              <ul id="menu-menu" class="nav"><li id="menu-item-128" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-128"><a href="">Add Category</a></li>
+              <!-- INSERT POPUP TO CREATE NEW CATEGORY IN HREF -->          
+            <form class="navbar-search pull-right" role="search" method="get" id="searchform" action="">
+              <!-- In action, insert url for db you want to search -->
+              <input name="s" id="s" type="text" class="search-query" placeholder="Search">
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>     
+    </div><!-- end of #header -->
+  </div>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span12">
+      <div id="main" role="main">
+        <%= yield %>
+    </div>
+  </div>
+</div>
+</div>
+</div><!-- end of wrapper-->
+</div><!-- end of container -->
+<%#<div id="footer" class="clearfix">
+  <div class="container">
+    <div id="footer-wrapper">
+      <div class="span12">
+        <div class="row-fluid">
+          <div class="span6">
+            <ul id="menu-footer" class="footer-menu"><li id="menu-item-266" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-266"><a href="http://bragthemes.com/demo/pinstrap/">Home</a></li>
+            </ul>                 
+          </div><!-- span6 -->
+          <div class="span6 powered">
+            Content Tracker developed by <a href="http://github.com/sb8244" title="Stephen Bussey">Stephen Bussey</a> and <a href="http://github.com/danstepanov" title="Dan Stepanov">Dan Stepanov</a>
+          </div><!-- end .powered -->
+        </div>
+      </div><!-- span12-->
+    </div><!-- end #footer-wrapper -->
+  </div>
+</div><!-- end #footer -->%>
+
+
+<script type='text/javascript' src='http://bragthemes.com/demo/pinstrap/wp-content/themes/pinstrap/js/responsive-scripts.js?ver=1.1.0'></script>
+<script type='text/javascript' src='http://bragthemes.com/demo/pinstrap/wp-content/themes/pinstrap/js/responsive-plugins.js?ver=1.1.0'></script>
+<script type='text/javascript' src='http://bragthemes.com/demo/pinstrap/wp-content/themes/pinstrap/js/jquery.colorbox-min.js?ver=1.3.19'></script>
+
+
+</body>
+</html>
