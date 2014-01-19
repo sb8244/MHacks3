@@ -1,7 +1,13 @@
+<div id='filters'>
+  <a class='btn filter btn-primary' data-filter='*'>All</a>
+<% @categories.each do |cat| %>
+  <a class='btn filter' data-filter='.<%= cat.name %>'><%= cat.name %></a>
+<% end %>
+</div>
 <div id='item-container'>
 <% @watches.each do |watch| %>
   <% unless watch.history.last.nil? %>
-  <div class="item" data-date='<%= watch.history.last.updated_at.to_i %>'>
+  <div class="item <%= watch.category ? watch.category.name : "" %>" data-date='<%= watch.history.last.updated_at.to_i %>'>
     <%= link_to 'X', watch, class: 'remove', method: :delete, data: { confirm: 'Are you sure?' } %>
     <img src="http://content2img.com:4000/images/<%= watch.history.last.image_id %>.png" 
       class="attachment-hp-thumb wp-post-image" alt="finance"/>
@@ -10,7 +16,6 @@
 <% end %>
 </div>
 <div class='clearfix'></div>
-<%#= link_to 'Sign out', destroy_user_session_path, :method => "delete" %>
 <script type="text/javascript">
 (function($) {
   $(document).ready(function() {
@@ -23,6 +28,14 @@
     setTimeout(function() {
       $("#item-container").isotope('reLayout');
     },500);
+  });
+  $(".filter.btn").click(function() {
+    $(this).siblings().removeClass("btn-primary");
+    $(this).addClass("btn-primary");
+  });
+  $("#filters a").click(function() {
+    var selector = $(this).attr('data-filter');
+    $("#item-container").isotope({ filter: selector });
   });
 })(jQuery);
 </script>

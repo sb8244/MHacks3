@@ -19,7 +19,8 @@ while($running) do
   #could also be parallelized, but this is a hackathon and i'm lazy
   watches = Watch.all 
   watches.each do |watch|
-    if(watch.history.last.nil? || watch.history.last.created_at - Time.now - 2.minutes > 0 )
+    #Check to see if 2 minutes have passed since the last check
+    if(watch.history.last.nil? || watch.history.last.updated_at - (Time.now - 2.minutes) < 0 )
       uri = URI(watch.url)
       #Grab a hash of the page and compare it to the old hash
       new_page_hash = Digest::MD5.hexdigest( Net::HTTP.get( uri ) )
@@ -27,7 +28,6 @@ while($running) do
       trigger_job = false
       trigger_job = true if watch.history.last.nil? || new_page_hash != watch.history.last.page_hash
       if trigger_job 
-        puts watch.url;
         #This service will take an image of the content for the very specific selector we have
         result = open("http://content2img.com:4000?trim=30&url=#{ERB::Util::url_encode(watch.url)}&selector=#{ERB::Util::url_encode(watch.selector)}").read
         json = JSON.parse(result)
@@ -42,6 +42,10 @@ while($running) do
           end
           #ChangeMailer.notify_user(watch.user, history).deliver
           puts "Job processed & Notified: #{watch.url}::#{watch.selector}"
+        else
+          last = watch.history.last
+          last.updated_at = DateTime.now
+          last.save
         end
       end
     end

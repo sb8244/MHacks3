@@ -6,6 +6,7 @@ class WatchesController < ApplicationController
   # GET /watches.json
   def index
     @watches = current_user.watch.all
+    @categories = current_user.category.all
   end
 
   # GET /watches/1
