@@ -9,8 +9,12 @@
   <% unless watch.history.last.nil? %>
   <div class="item <%= watch.category ? watch.category.name : "" %>" data-date='<%= watch.history.last.updated_at.to_i %>'>
     <%= link_to 'X', watch, class: 'remove', method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% if watch.history.last.image_id %>
     <img src="http://content2img.com:4000/images/<%= watch.history.last.image_id %>.png" 
       class="attachment-hp-thumb wp-post-image" alt="finance"/>
+    <% else %>
+    Content expired
+    <% end %>
   </div>
   <% end %>
 <% end %>

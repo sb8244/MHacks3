@@ -63,6 +63,6 @@ class WatchesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def watch_params
-      params.permit(:url, :selector)
+      params.permit(:url, :selector, :category)
     end
 end

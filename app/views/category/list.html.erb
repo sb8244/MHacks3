@@ -1,0 +1,5 @@
+<select name='category' id='category-select'>
+<% @categories.each do |category| %>
+  <option value='<%= category.id %>'><%= category.name %></option>
+<% end %>
+</select>
