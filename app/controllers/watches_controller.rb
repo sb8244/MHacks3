@@ -19,7 +19,8 @@ class WatchesController < ApplicationController
   def create
     @watch = Watch.new(watch_params)
     @watch.user = current_user
-
+    cat = Category.find params[:category]
+    @watch.category << cat unless cat.nil?
     respond_to do |format|
       if @watch.save
         format.html { redirect_to @watch, notice: 'Watch was successfully created.' }
@@ -63,6 +64,6 @@ class WatchesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def watch_params
-      params.permit(:url, :selector, :category)
+      params.permit(:url, :selector)
     end
 end

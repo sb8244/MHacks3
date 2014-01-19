@@ -6,5 +6,4 @@ class Category
   belongs_to :user
 
   field   :name,  :type => String
-  field   :image, :type => String
 end

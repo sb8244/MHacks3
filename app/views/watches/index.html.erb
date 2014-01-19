@@ -7,7 +7,7 @@
 <div id='item-container'>
 <% @watches.each do |watch| %>
   <% unless watch.history.last.nil? || watch.history.last.image_id.nil? %>
-  <div class="item <%= watch.category ? watch.category.name : "" %>" 
+  <div class="item <%= watch.category ? watch.category.collect(&:name).join(' ') : "" %>" 
     data-date='<%= watch.history.last.updated_at.to_i %>'
     data-url='<%= watch.url %>'
     data-content='<%= watch.history.last.content %>'>
@@ -56,6 +56,9 @@
     $(".item[data-content*='" + search + "']").addClass("matches");
     $("#item-container").isotope({ filter: ".matches" });
     $(".filter.btn").removeClass("btn-primary");
+  });
+  $(".item").click(function() {
+    $.colorbox({href:$(this).find("img").attr("src")});
   });
 })(jQuery);
 </script>

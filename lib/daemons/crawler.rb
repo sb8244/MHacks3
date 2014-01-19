@@ -22,7 +22,7 @@ while($running) do
     begin
       last_history = watch.history.last
       #Check to see if 2 minutes have passed since the last check
-      if(last_history.nil? || last_history.updated_at - (Time.now - 2.minutes) < 0 )
+      if(last_history.nil? || last_history.updated_at - (Time.now - 15.seconds) < 0 )
         uri = URI(watch.url)
 
         if last_history 
@@ -58,6 +58,7 @@ while($running) do
               h.image_id = json['id']
               h.save
             end
+            EvernoteHelper.associate_content_with_evernote(watch.user, history)
             ChangeMailer.notify_user(watch.user, history, last_history).deliver
             puts "Job processed & Notified: #{watch.url}::#{watch.selector}"
           end

@@ -10,6 +10,14 @@
  *
  *= require_self
  */
+@font-face {
+    font-family: ProximaNova;
+        src: url("/assets/pn.otf") format("opentype");        
+}
+
+html, body, .container, .navbar .brand  {
+  font-family: ProximaNova !important;
+}
 
 html {
   height: 100%;

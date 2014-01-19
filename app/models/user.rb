@@ -27,7 +27,7 @@ class User
 
   # Evernote
   field :evernote_token,     :type => String
-
+  field :evernote_notebook,  :type => String
   def self.find_for_oauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
       user.provider = auth.provider

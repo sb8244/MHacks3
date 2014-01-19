@@ -3,9 +3,10 @@ class Watch
   include Mongoid::Timestamps
 
   belongs_to :user, validate: true
-  belongs_to :category
+  has_and_belongs_to_many :category
   has_many :history
 
   field :url,       :type => String
   field :selector,  :type => String
+  field :evernote_note, :type => String
 end
