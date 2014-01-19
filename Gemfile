@@ -13,6 +13,7 @@ gem "font-awesome-rails"
 gem 'rack-cors'
 gem 'daemons-rails'
 gem 'sendgrid'
+gem 'parallel'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
