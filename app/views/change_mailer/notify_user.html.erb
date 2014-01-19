@@ -4,11 +4,16 @@
   <h1>We're looking out for you</h1>
   <p>
     Some of the content that you are interested in has changed. The content at 
-    <%= link_to @history.watch.url, @history.watch.url %> has changed. Check out the
+    <%= link_to @new.watch.url, @new.watch.url %> has changed. Check out the
     new content:
   </p>
+  <p>From</p>
   <p>
-    <img src='http://content2img.com:4000/images/<%= @history.image_id %>.png' />
+    <img src='http://content2img.com:4000/images/<%= @previous.image_id %>.png' />
+  </p>
+  <p>To</p>
+  <p>
+    <img src='http://content2img.com:4000/images/<%= @new.image_id %>.png' />
   </p>
   </body>
 </html>

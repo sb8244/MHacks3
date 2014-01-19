@@ -14,6 +14,8 @@ gem 'rack-cors'
 gem 'daemons-rails'
 gem 'sendgrid'
 gem 'parallel'
+gem 'evernote'
+gem 'evernote_oauth'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
