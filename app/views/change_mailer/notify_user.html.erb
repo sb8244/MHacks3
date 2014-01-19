@@ -7,11 +7,13 @@
     <%= link_to @new.watch.url, @new.watch.url %> has changed. Check out the
     new content:
   </p>
+  <% if @previous %>
   <p>From</p>
   <p>
     <img src='http://content2img.com:4000/images/<%= @previous.image_id %>.png' />
   </p>
   <p>To</p>
+  <% end %>
   <p>
     <img src='http://content2img.com:4000/images/<%= @new.image_id %>.png' />
   </p>
